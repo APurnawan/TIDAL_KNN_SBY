@@ -1,0 +1,2 @@
+Metode,K_Terbaik,Window_Size,Jumlah_Fitur,Jumlah_Training,Jumlah_Testing,MAE_cm,RMSE_cm,MAPE_persen,R2,Mean_Error_cm,Median_Absolute_Error_cm,Max_Absolute_Error_cm
+KNN,2,60,4,1712,429,19.568764568764568,24.19602348419162,23.65276898827937,0.7093881459957145,-3.6363636363636362,17.5,72.0

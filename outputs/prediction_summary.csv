@@ -1,0 +1,2 @@
+Testing_Samples,Prediction_Samples,Model_File,Input_File,Actual_File,Output_CSV,Prediction_NPY,Actual_NPY
+423,423,/content/gdrive/MyDrive/TA_KNN_SBY/models/knn_model.pkl,/content/gdrive/MyDrive/TA_KNN_SBY/outputs/X_test_scaled.npy,/content/gdrive/MyDrive/TA_KNN_SBY/outputs/y_test.npy,/content/gdrive/MyDrive/TA_KNN_SBY/outputs/actual_vs_prediction.csv,/content/gdrive/MyDrive/TA_KNN_SBY/outputs/y_pred.npy,/content/gdrive/MyDrive/TA_KNN_SBY/outputs/y_test_actual.npy

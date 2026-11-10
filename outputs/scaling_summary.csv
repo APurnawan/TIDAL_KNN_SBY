@@ -1,0 +1,2 @@
+X_train_samples,X_train_features,X_test_samples,X_test_features,Training_Min,Training_Max,Scaler,Scaler_Fit_On
+1690,60,423,60,0.0,1.0,MinMaxScaler,X_train only

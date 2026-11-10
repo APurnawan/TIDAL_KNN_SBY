@@ -1,0 +1,10 @@
+Parameter,Value
+Window_Size,60
+Input_Features,60
+Total_Original_Data,2173
+Total_Window_Samples,2113
+X_Shape,"(2113, 60)"
+y_Shape,"(2113,)"
+First_Input_Start,2026-07-01 07:00:00
+First_Input_End,2026-07-03 18:00:00
+First_Target_Time,2026-07-03 19:00:00
