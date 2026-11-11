@@ -147,7 +147,7 @@ with st.sidebar:
     st.markdown("""
     <div class="sidebar-brand">
         <div style="font-size:17px; font-weight:800;">
-            DASHBOARD TUGAS AKHIR
+            ?? DASHBOARD TUGAS AKHIR
         </div>
         <div style="font-size:11px; margin-top:8px; font-weight:600;">
             IMPLEMENTASI METODE KNN
@@ -435,7 +435,7 @@ with tab3:
 
     if nasa_col and time_col:
         st.markdown('<div class="section-title">Analisis Hubungan Pasut dan Penerangan Bulan</div>', unsafe_allow_html=True)
-        st.plotly_chart(build_tide_lunar_figure(data_view, time_col, elev_col, nasa_col), use_container_width=True, key="tide_lunar_historical")
+        st.plotly_chart(build_tide_lunar_figure(data_view, time_col, elev_col, nasa_col), use_container_width=True, key="tide_lunar_pattern")
 
 # ------------------------------------------------------------
 # TAB 4 - RAW DATA
