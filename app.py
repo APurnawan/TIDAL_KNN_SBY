@@ -18,21 +18,18 @@ from utils import (
 # KONFIGURASI HALAMAN
 # ============================================================
 st.markdown("""
-<div class="sidebar-brand">
-    <div style="font-size:22px;">🎓 TUGAS AKHIR</div>
-    <div style="font-size:12px; margin-top:7px;">
-        IMPLEMENTASI METODE KNN
-    </div>
-    <div style="font-size:11px; margin-top:5px; font-weight:400;">
-        Prediksi Tinggi Muka Air Pasang Surut
-    </div>
-    <hr style="border-color:#54749d;">
-    <div style="font-size:11px;">
-        UNIVERSITAS WIDYA KARTIKA
-    </div>
-</div>
-""", unsafe_allow_html=True)
+<style>
+html, body, [class*="css"], [data-testid="stAppViewContainer"] {
+    font-family: 'Inter', sans-serif;
+}
 
+.block-container {
+    padding-top: 1.15rem;
+    padding-bottom: 1.2rem;
+    max-width: 1600px;
+}
+</style>
+""", unsafe_allow_html=True)
 # ============================================================
 # CSS - MENDEKATI DESAIN REFERENSI
 # ============================================================
