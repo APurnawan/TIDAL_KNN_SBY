@@ -172,31 +172,69 @@ def load_k_search():
 def load_preprocessed():
     return read_csv_safe(OUTPUT_DIR / "data_preprocessed.csv")
 
+
 def build_tide_lunar_figure(df, time_col, elev_col, nasa_col):
     fig = go.Figure()
-    if time_col and elev_col and elev_col in df:
+
+    if time_col and elev_col and elev_col in df.columns:
         fig.add_trace(go.Scatter(
-            x=df[time_col], y=df[elev_col], name="Elevasi Pasut",
-            mode="lines", line=dict(color="#159447", width=1.8), yaxis="y"
+            x=df[time_col],
+            y=df[elev_col],
+            name="Elevasi Pasut",
+            mode="lines",
+            line=dict(color="#159447", width=1.8),
+            yaxis="y"
         ))
-    if nasa_col and nasa_col in df:
+
+    if time_col and nasa_col and nasa_col in df.columns:
         fig.add_trace(go.Scatter(
-            x=df[time_col], y=df[nasa_col], name="Penerangan Bulan NASA",
-            mode="lines", line=dict(color="#1769d2", width=1.6), yaxis="y2"
+            x=df[time_col],
+            y=df[nasa_col],
+            name="Penerangan Bulan NASA",
+            mode="lines",
+            line=dict(color="#1769d2", width=1.6),
+            yaxis="y2"
         ))
+
     fig.update_layout(
-        height=390, hovermode="x unified",
-        margin=dict(l=10,r=10,t=25,b=10),
-        paper_bgcolor="white", plot_bgcolor="white",
-        xaxis_title="Tanggal dan Waktu (WIB)",
-        yaxis=dict(title="Elevasi Pasut (cm)", titlefont=dict(color="#159447"),
-                   tickfont=dict(color="#159447"), gridcolor="#e8eef6"),
-        yaxis2=dict(title="Penerangan Bulan (%)", overlaying="y", side="right",
-                    range=[0,100], titlefont=dict(color="#1769d2"),
-                    tickfont=dict(color="#1769d2"), showgrid=False),
-        legend=dict(orientation="h", y=1.12, x=0)
+        height=390,
+        hovermode="x unified",
+        margin=dict(l=10, r=10, t=25, b=10),
+        paper_bgcolor="white",
+        plot_bgcolor="white",
+        xaxis=dict(
+            title="Tanggal dan Waktu (WIB)",
+            showgrid=True,
+            gridcolor="#e8eef6"
+        ),
+        yaxis=dict(
+            title=dict(
+                text="Elevasi Pasut (cm)",
+                font=dict(color="#159447")
+            ),
+            tickfont=dict(color="#159447"),
+            gridcolor="#e8eef6"
+        ),
+        yaxis2=dict(
+            title=dict(
+                text="Penerangan Bulan (%)",
+                font=dict(color="#1769d2")
+            ),
+            tickfont=dict(color="#1769d2"),
+            overlaying="y",
+            side="right",
+            range=[0, 100],
+            showgrid=False
+        ),
+        legend=dict(
+            orientation="h",
+            y=1.12,
+            x=0
+        )
     )
+
     return fig
+
 
 def build_actual_prediction_figure(df):
     fig = go.Figure()
