@@ -22,88 +22,6 @@ st.markdown("""
 html, body, [class*="css"], [data-testid="stAppViewContainer"] {
     font-family: 'Inter', sans-serif;
 }
-
-.block-container {
-    padding-top: 1.15rem;
-    padding-bottom: 1.2rem;
-    max-width: 1600px;
-}
-
-[data-testid="stSidebar"] {
-    background: linear-gradient(180deg, #f3f8ff 0%, #ffffff 100%);
-    border-right: 1px solid #dce8f5;
-}
-
-.sidebar-brand {
-    background: linear-gradient(120deg, #07336f, #09285a);
-    color: white;
-    padding: 15px 13px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-</style>
-""", unsafe_allow_html=True)
-with st.sidebar:
-
-    # IDENTITAS TUGAS AKHIR
-    st.markdown("""
-    <div class="sidebar-brand">
-        <div style="font-size:17px; font-weight:800;">
-            🎓 DASHBOARD TUGAS AKHIR
-        </div>
-        <div style="font-size:11px; margin-top:8px; font-weight:600;">
-            IMPLEMENTASI METODE KNN
-        </div>
-        <div style="font-size:10px; margin-top:5px; font-weight:400; line-height:1.5;">
-            Prediksi Tinggi Muka Air Pasang Surut
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # PERIODE HISTORIS
-    st.markdown("**Periode Historis**")
-
-    period = st.selectbox(
-        "Pilih periode",
-        ["7 Hari", "1 Bulan", "3 Bulan", "Seluruh Data"],
-        index=2,
-        label_visibility="collapsed"
-    )
-
-    # INFORMASI MODEL
-    st.markdown("""
-    <div class="sidebar-card">
-        <div class="sidebar-card-title">INFORMASI MODEL</div>
-        <div class="sidebar-row"><span>Model</span><b>KNN Regression</b></div>
-        <div class="sidebar-row"><span>Window Size</span><b>60 data</b></div>
-        <div class="sidebar-row"><span>Training</span><b>80%</b></div>
-        <div class="sidebar-row"><span>Testing</span><b>20%</b></div>
-        <div class="sidebar-row"><span>Forecast</span><b>24 jam</b></div>
-    </div>
-
-    <div class="sidebar-card">
-        <div class="sidebar-card-title">INFORMASI TUGAS AKHIR</div>
-        <div class="sidebar-row"><span>Nama</span><b>Agus Purnawan</b></div>
-        <div class="sidebar-row"><span>NRP</span><b>31123023</b></div>
-        <div class="sidebar-row"><span>Universitas</span><b>Widya Kartika</b></div>
-        <div class="sidebar-row"><span>Lokasi</span><b>Stasiun SRBY</b></div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # STATUS MODEL
-    model_file = Path("models/knn_model.pkl")
-    scaler_file = Path("models/scaler_X.pkl")
-
-    if model_file.exists() and scaler_file.exists():
-        st.success("Model KNN dan scaler tersedia")
-    else:
-        st.warning("File model/scaler belum lengkap")
-
-    st.caption("Tidal Prediction Dashboard · KNN")
-
-html, body, [class*="css"], [data-testid="stAppViewContainer"] {
-    font-family: 'Inter', sans-serif;
-}
 [data-testid="stAppViewContainer"] {
     background: #f7faff;
 }
@@ -125,7 +43,6 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {
     padding: 15px 13px;
     border-radius: 8px;
     font-weight: 800;
-    font-size: 15px;
     letter-spacing: .3px;
     margin-bottom: 15px;
 }
@@ -145,76 +62,80 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {
     letter-spacing: .3px;
 }
 .sidebar-row {
-    display:flex;
-    justify-content:space-between;
-    gap:8px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
     margin: 7px 0;
-    color:#344967;
+    color: #344967;
+}
+.sidebar-row b {
+    text-align: right;
+    color: #092f68;
 }
 .main-title {
-    color:#082e67;
-    font-size:30px;
-    line-height:1.15;
-    font-weight:800;
-    margin-bottom:5px;
+    color: #082e67;
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 5px;
 }
 .sub-title {
-    color:#61738e;
-    font-size:12px;
-    margin-bottom:13px;
+    color: #61738e;
+    font-size: 12px;
+    margin-bottom: 13px;
 }
 .status-pill {
-    display:inline-block;
-    background:#dcfce7;
-    color:#168044;
-    border:1px solid #b7efcb;
-    border-radius:5px;
-    font-size:10px;
-    font-weight:800;
-    padding:3px 8px;
-    margin-right:7px;
+    display: inline-block;
+    background: #dcfce7;
+    color: #168044;
+    border: 1px solid #b7efcb;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 8px;
+    margin-right: 7px;
 }
 .section-title {
-    color:#082f68;
-    font-weight:800;
-    font-size:14px;
-    border-left:4px solid #1673e6;
-    padding-left:9px;
+    color: #082f68;
+    font-weight: 800;
+    font-size: 14px;
+    border-left: 4px solid #1673e6;
+    padding-left: 9px;
     margin: 10px 0 9px 0;
-    text-transform:uppercase;
+    text-transform: uppercase;
 }
 div[data-testid="stMetric"] {
-    background:white;
-    border:1px solid #e0eaf5;
-    border-radius:9px;
-    padding:10px 12px;
-    box-shadow:0 1px 3px rgba(20,60,110,.035);
+    background: white;
+    border: 1px solid #e0eaf5;
+    border-radius: 9px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 3px rgba(20,60,110,.035);
 }
 div[data-testid="stMetricLabel"] p {
-    color:#526985;
-    font-size:11px;
-    font-weight:600;
+    color: #526985;
+    font-size: 11px;
+    font-weight: 600;
 }
 div[data-testid="stMetricValue"] {
-    color:#092f68;
-    font-size:22px;
-    font-weight:800;
+    color: #092f68;
+    font-size: 22px;
+    font-weight: 800;
 }
 div[data-testid="stMetricDelta"] {
-    font-size:10px;
+    font-size: 10px;
 }
 div[data-testid="stTabs"] button {
-    font-size:12px;
-    font-weight:600;
+    font-size: 12px;
+    font-weight: 600;
 }
 div[data-testid="stDataFrame"] {
-    border:1px solid #e0eaf5;
-    border-radius:8px;
+    border: 1px solid #e0eaf5;
+    border-radius: 8px;
 }
 .info-note {
-    color:#64748b;
-    font-size:11px;
-    margin-top:3px;
+    color: #64748b;
+    font-size: 11px;
+    margin-top: 3px;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -223,7 +144,20 @@ div[data-testid="stDataFrame"] {
 # SIDEBAR
 # ============================================================
 with st.sidebar:
-    st.markdown('<div class="sidebar-brand">🌊 &nbsp; KONTROL<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DASHBOARD</div>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="sidebar-brand">
+        <div style="font-size:17px; font-weight:800;">
+            ?? DASHBOARD TUGAS AKHIR
+        </div>
+        <div style="font-size:11px; margin-top:8px; font-weight:600;">
+            IMPLEMENTASI METODE KNN
+        </div>
+        <div style="font-size:10px; margin-top:5px; font-weight:400; line-height:1.5;">
+            Prediksi Tinggi Muka Air Pasang Surut
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
     st.markdown("**Periode Historis**")
     period = st.selectbox(
         "Pilih periode",
@@ -231,28 +165,32 @@ with st.sidebar:
         index=2,
         label_visibility="collapsed"
     )
+
     st.markdown("""
     <div class="sidebar-card">
-      <div class="sidebar-card-title">INFORMASI MODEL</div>
-      <div class="sidebar-row"><span>Model</span><b>KNN Regression</b></div>
-      <div class="sidebar-row"><span>Window Size</span><b>60 data</b></div>
-      <div class="sidebar-row"><span>Training</span><b>80%</b></div>
-      <div class="sidebar-row"><span>Testing</span><b>20%</b></div>
-      <div class="sidebar-row"><span>Forecast</span><b>24 jam</b></div>
+        <div class="sidebar-card-title">INFORMASI MODEL</div>
+        <div class="sidebar-row"><span>Model</span><b>KNN Regression</b></div>
+        <div class="sidebar-row"><span>Window Size</span><b>60 data</b></div>
+        <div class="sidebar-row"><span>Training</span><b>80%</b></div>
+        <div class="sidebar-row"><span>Testing</span><b>20%</b></div>
+        <div class="sidebar-row"><span>Forecast</span><b>24 jam</b></div>
     </div>
     <div class="sidebar-card">
-      <div class="sidebar-card-title">INFORMASI TUGAS AKHIR</div>
-      <div class="sidebar-row"><span>Nama</span><b>Agus Purnawan</b></div>
-      <div class="sidebar-row"><span>Universitas</span><b>Widya Kartika</b></div>
-      <div class="sidebar-row"><span>Lokasi</span><b>Stasiun SRBY</b></div>
+        <div class="sidebar-card-title">INFORMASI TUGAS AKHIR</div>
+        <div class="sidebar-row"><span>Nama</span><b>Agus Purnawan</b></div>
+        <div class="sidebar-row"><span>NRP</span><b>31123023</b></div>
+        <div class="sidebar-row"><span>Universitas</span><b>Widya Kartika</b></div>
+        <div class="sidebar-row"><span>Lokasi</span><b>Stasiun SRBY</b></div>
     </div>
     """, unsafe_allow_html=True)
+
     model_file = Path("models/knn_model.pkl")
     scaler_file = Path("models/scaler_X.pkl")
     if model_file.exists() and scaler_file.exists():
         st.success("Model KNN dan scaler tersedia")
     else:
         st.warning("File model/scaler belum lengkap")
+
     st.caption("Tidal Prediction Dashboard · KNN")
 
 # ============================================================
@@ -497,7 +435,7 @@ with tab3:
 
     if nasa_col and time_col:
         st.markdown('<div class="section-title">Analisis Hubungan Pasut dan Penerangan Bulan</div>', unsafe_allow_html=True)
-        st.plotly_chart(build_tide_lunar_figure(data_view, time_col, elev_col, nasa_col), use_container_width=True)
+        st.plotly_chart(build_tide_lunar_figure(data_view, time_col, elev_col, nasa_col), use_container_width=True, key="tide_lunar_historical")
 
 # ------------------------------------------------------------
 # TAB 4 - RAW DATA
