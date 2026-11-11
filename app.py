@@ -43,22 +43,63 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {
 }
 </style>
 """, unsafe_allow_html=True)
-# ============================================================
-# CSS - MENDEKATI DESAIN REFERENSI
-# ============================================================
-st.markdown("""
-<div class="sidebar-brand">
-    <div style="font-size:17px; font-weight:800;">
-        🎓 DASHBOARD TUGAS AKHIR
+with st.sidebar:
+
+    # IDENTITAS TUGAS AKHIR
+    st.markdown("""
+    <div class="sidebar-brand">
+        <div style="font-size:17px; font-weight:800;">
+            🎓 DASHBOARD TUGAS AKHIR
+        </div>
+        <div style="font-size:11px; margin-top:8px; font-weight:600;">
+            IMPLEMENTASI METODE KNN
+        </div>
+        <div style="font-size:10px; margin-top:5px; font-weight:400; line-height:1.5;">
+            Prediksi Tinggi Muka Air Pasang Surut
+        </div>
     </div>
-    <div style="font-size:11px; margin-top:8px; font-weight:600;">
-        IMPLEMENTASI METODE KNN
+    """, unsafe_allow_html=True)
+
+    # PERIODE HISTORIS
+    st.markdown("**Periode Historis**")
+
+    period = st.selectbox(
+        "Pilih periode",
+        ["7 Hari", "1 Bulan", "3 Bulan", "Seluruh Data"],
+        index=2,
+        label_visibility="collapsed"
+    )
+
+    # INFORMASI MODEL
+    st.markdown("""
+    <div class="sidebar-card">
+        <div class="sidebar-card-title">INFORMASI MODEL</div>
+        <div class="sidebar-row"><span>Model</span><b>KNN Regression</b></div>
+        <div class="sidebar-row"><span>Window Size</span><b>60 data</b></div>
+        <div class="sidebar-row"><span>Training</span><b>80%</b></div>
+        <div class="sidebar-row"><span>Testing</span><b>20%</b></div>
+        <div class="sidebar-row"><span>Forecast</span><b>24 jam</b></div>
     </div>
-    <div style="font-size:10px; margin-top:5px; font-weight:400; line-height:1.5;">
-        Prediksi Tinggi Muka Air Pasang Surut
+
+    <div class="sidebar-card">
+        <div class="sidebar-card-title">INFORMASI TUGAS AKHIR</div>
+        <div class="sidebar-row"><span>Nama</span><b>Agus Purnawan</b></div>
+        <div class="sidebar-row"><span>NRP</span><b>31123023</b></div>
+        <div class="sidebar-row"><span>Universitas</span><b>Widya Kartika</b></div>
+        <div class="sidebar-row"><span>Lokasi</span><b>Stasiun SRBY</b></div>
     </div>
-</div>
-""", unsafe_allow_html=True)
+    """, unsafe_allow_html=True)
+
+    # STATUS MODEL
+    model_file = Path("models/knn_model.pkl")
+    scaler_file = Path("models/scaler_X.pkl")
+
+    if model_file.exists() and scaler_file.exists():
+        st.success("Model KNN dan scaler tersedia")
+    else:
+        st.warning("File model/scaler belum lengkap")
+
+    st.caption("Tidal Prediction Dashboard · KNN")
 
 html, body, [class*="css"], [data-testid="stAppViewContainer"] {
     font-family: 'Inter', sans-serif;
