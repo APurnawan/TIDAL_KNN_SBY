@@ -147,7 +147,7 @@ with st.sidebar:
     st.markdown("""
     <div class="sidebar-brand">
         <div style="font-size:17px; font-weight:800;">
-            ?? DASHBOARD TUGAS AKHIR
+            DASHBOARD TUGAS AKHIR
         </div>
         <div style="font-size:11px; margin-top:8px; font-weight:600;">
             IMPLEMENTASI METODE KNN
