@@ -36,7 +36,19 @@ st.markdown("""
 # ============================================================
 # CSS - MENDEKATI DESAIN REFERENSI
 # ============================================================
-st.markdown('<div class="sidebar-brand">🌊 &nbsp; KONTROL<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DASHBOARD</div>', unsafe_allow_html=True)
+st.markdown("""
+<div class="sidebar-brand">
+    <div style="font-size:17px; font-weight:800;">
+        🎓 DASHBOARD TUGAS AKHIR
+    </div>
+    <div style="font-size:11px; margin-top:8px; font-weight:600;">
+        IMPLEMENTASI METODE KNN
+    </div>
+    <div style="font-size:10px; margin-top:5px; font-weight:400; line-height:1.5;">
+        Prediksi Tinggi Muka Air Pasang Surut
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 html, body, [class*="css"], [data-testid="stAppViewContainer"] {
     font-family: 'Inter', sans-serif;
