@@ -15,7 +15,7 @@ from utils import (
 )
 
 # ============================================================
-# KONFIGURASI HALAMAN
+# KONFIGURASI HALAMAN DAN CSS
 # ============================================================
 st.markdown("""
 <style>
@@ -27,6 +27,19 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {
     padding-top: 1.15rem;
     padding-bottom: 1.2rem;
     max-width: 1600px;
+}
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #f3f8ff 0%, #ffffff 100%);
+    border-right: 1px solid #dce8f5;
+}
+
+.sidebar-brand {
+    background: linear-gradient(120deg, #07336f, #09285a);
+    color: white;
+    padding: 15px 13px;
+    border-radius: 8px;
+    margin-bottom: 15px;
 }
 </style>
 """, unsafe_allow_html=True)
