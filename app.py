@@ -329,7 +329,7 @@ with tab1:
         st.plotly_chart(fig, use_container_width=True)
     if nasa_col and time_col:
         st.markdown('<div class="section-title">Perbandingan Elevasi Pasut dan Penerangan Bulan NASA</div>', unsafe_allow_html=True)
-        st.plotly_chart(build_tide_lunar_figure(data_view, time_col, elev_col, nasa_col), use_container_width=True)
+        st.plotly_chart(build_tide_lunar_figure(data_view, time_col, elev_col, nasa_col), use_container_width=True, key="tide_lunar_historical")
 
 # ------------------------------------------------------------
 # TAB 2 - FORECAST & EVALUATION
