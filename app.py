@@ -17,12 +17,21 @@ from utils import (
 # ============================================================
 # KONFIGURASI HALAMAN
 # ============================================================
-st.set_page_config(
-    page_title="Tidal Prediction Dashboard | KNN",
-    page_icon="🌊",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.markdown("""
+<div class="sidebar-brand">
+    <div style="font-size:22px;">🎓 TUGAS AKHIR</div>
+    <div style="font-size:12px; margin-top:7px;">
+        IMPLEMENTASI METODE KNN
+    </div>
+    <div style="font-size:11px; margin-top:5px; font-weight:400;">
+        Prediksi Tinggi Muka Air Pasang Surut
+    </div>
+    <hr style="border-color:#54749d;">
+    <div style="font-size:11px;">
+        UNIVERSITAS WIDYA KARTIKA
+    </div>
+</div>
+""", unsafe_allow_html=True)
 
 # ============================================================
 # CSS - MENDEKATI DESAIN REFERENSI
